@@ -1,0 +1,103 @@
+/* 글꼴 설정 */
+@font-face {
+    font-family: abster;
+    src: url(font/abster-webfont.woff) format('woff');
+} 
+/* 전체 선택 */
+*{
+    margin: 0;
+    /*바깥여백 초기화*/
+    padding: 0;
+    /*내부 여백 초기화*/
+    box-sizing: border-box;
+    /* 박스 넘침 방지 */
+}
+
+/* 배경처리 */
+.container{
+    width: 100%;
+    height: 100vh;
+
+    background: linear-gradient(rgba(255, 0, 0, 0.8), rgba(238, 255, 0, 0.8),rgba(0, 145, 255, 0.8),rgba(251, 0, 255, 0.8)), url(https://i.namu.wiki/i/7Wc5p9D5RBJrWovOA_-aPNVE7YdY-TFSPL5sn05vi0Y1w4g5esnouINxSBrOdKkKooMpr-VV_uw5jEhQUY_Mnw.webp);
+}
+
+/* 헤더배치 */
+.container .header {
+    width: 80%;
+    height: 80px;
+    margin: 0 auto;
+    display: flex;
+
+    justify-content: space-between;
+
+}
+/* 글자로고 */
+
+.container .header h1 a {
+    color: white;
+    text-decoration: none;
+    /* 밑줄 없애기 링크있는거 */
+    
+    font-family: abster;
+}
+/* 메뉴요소 배치 */
+
+.container .header .nav ul li{
+  
+    display: inline-flex;
+    margin: 0 10px;
+ 
+}
+
+/* 메뉴요소 스타일링 */
+.container .header .nav ul li a {
+    color: white;
+    text-decoration: none;
+ 
+}
+
+.container .head .nav ul li a.hover {
+    text-decoration: none;
+    color: rgb(231, 139, 197); 
+
+}
+/* 화면 중앙 요소 배치 */
+
+.container .hero {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    color: white;
+}
+
+.container .hero {
+    text-align: center;
+}
+/* 화면 중앙 요소 제목 */
+.container .hero h2 {
+    font-size: 60px;
+
+}
+
+/* 화면 중앙 요소 본문 */s
+.container .hero p {
+    font-size: 20px;
+    
+}
+/* 화면 중앙 요소 버튼 */ 
+.container .hero button {
+    background: none;
+    border-radius: 20px;
+    border: 2px solid darkkhaki;
+    padding: 10px 20px;
+    color: white;
+    margin-top: 30px;
+}
+/* 화면 중앙 요소 버튼 처리 */
+.container .hero button:hover{
+    background-color: rgb(17, 147, 207);
+}
+/* 글꼴 설정 */
+
+
