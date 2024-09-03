@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+         body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        .Cal {
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.245);
+            background-color: #d0ffac;
+            padding: 20px;
+            width: 260px;
+        }
+        .display {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 10px;
+            text-align: right;
+            font-size: 1.5em;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        .button {
+            padding: 15px;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ffffff;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #d1d1d1;
+        }
+        .button2{
+            padding: 15px;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #ff7c7c;
+            cursor: pointer;
+            transition: background-color 0.2s;
+           
+        }
+        .button2:hover {
+            background-color: #ff2323;
+        }
+        .button3{
+            padding: 15px;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            background-color: #fff0a2;
+            cursor: pointer;
+            transition: background-color 0.2s;
+           
+        }
+        .button3:hover {
+            background-color: #ffee00;
+        }
+    </style>
+    <script>
+// 위에 스타일에선 계산기를 가운대로 오게하고 색깔들 변하게
+        function number(number) { //숫자 누르면 문자끼리 더해진늑
+            const display = document.getElementById('display');
+            if (display.value === '0') {
+                display.value = number;
+            } else {
+                display.value += number;
+            }
+        }
+
+        function setOperation(operation) { //부호
+            const display = document.getElementById('display');
+            display.dataset.value = display.value;
+            display.dataset.operation = operation;
+            display.value = '';
+        }
+
+        function calculate() { //샤칙연산
+            const display = document.getElementById('display');
+            const num1 = parseFloat(display.dataset.value);
+            const num2 = parseFloat(display.value);
+            const operation = display.dataset.operation;
+
+            let result;
+
+            switch (operation) {
+                case '+':
+                    result = num1 + num2;
+                    break;
+                case '-':
+                    result = num1 - num2;
+                    break;
+                case '*':
+                    result = num1 * num2;
+                    break;
+                case '/':
+                    result = num1 / num2;
+                    break;
+                default:
+                    result = num2;
+            }
+
+            display.value = result;
+            delete display.dataset.value;
+            delete display.dataset.operation;
+        }
+
+        //A/C ㅅ숫자없애는거
+        function clearDisplay() { 
+            const display = document.getElementById('display'); 
+            display.value = '';
+            delete display.dataset.value;
+            delete display.dataset.operation;
+        }
+
+    </script>
+</head>
+<body> 
+    <div class="Cal">
+        <input type="text" id="display" class="display" value="" ><br>
+        <input type="button" value="1" id="number" onclick="number('1')" class="button">
+        <input type="button" value="2" id="number" onclick="number('2')" class="button"> <!--버튼으로 숫자-->
+        <input type="button" value="3" id="number"onclick="number('3')" class="button">
+        <input type="button" value="+"  onclick="setOperation('+')" class="button2"><br>
+        <input type="button" value="4" id="number"onclick="number('4')" class="button">
+        <input type="button" value="5" id="number"onclick="number('5')" class="button">
+        <input type="button" value="6" id="number"onclick="number('6')" class="button">
+        <input type="button" value="-" onclick="setOperation('-')" class="button2"><br>
+        <input type="button" value="7" id="number" onclick="number('7')" class="button">
+        <input type="button" value="8" id="number"onclick="number('8')" class="button">
+        <input type="button" value="9" id="number"onclick="number('9')" class="button">
+        <input type="button" value="*"  onclick="setOperation('*')" class="button2"><br>
+        <input type="button" value="A/C" onclick="clearDisplay()" class="button2">
+        <input type="button" value="0" onclick="number('0')" class="button">
+        <input type="button" value="=" onclick="calculate()" class="button3">
+        <input type="button" value="/"  onclick="setOperation('/')" class="button2">
+
+    </div>
+    
+</body>
+</html>
+
